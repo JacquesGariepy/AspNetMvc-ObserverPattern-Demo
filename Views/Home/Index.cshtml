@@ -1,0 +1,45 @@
+﻿<div class="parent-container">
+    <h1>Index</h1>
+
+    <div id="dataContainer">
+        @await Component.InvokeAsync("Message", new { message = ViewBag.Message })
+    </div>
+
+    @await Component.InvokeAsync("Child")
+
+    <ul id="parentList">
+        @for (int i = 0; i < ViewBag.Items.Count; i++)
+        {
+            <li>
+                @ViewBag.Items[i]
+                <button type="button" onclick="editItem(@i)">Edit</button>
+                <form asp-action="DeleteItem" method="post" style="display:inline;">
+                    <input type="hidden" name="index" value="@i" />
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        }
+    </ul>
+
+    <form asp-action="AddItem" method="post">
+        <input type="text" id="newItem" name="newItem" placeholder="Enter item" />
+        <button type="submit">Add Item</button>
+    </form>
+
+    <div id="editForm" style="display:none;">
+        <form asp-action="UpdateItem" method="post">
+            <input type="hidden" id="editIndex" name="index" />
+            <input type="text" id="updatedItem" name="updatedItem" placeholder="Update item" />
+            <button type="submit">Update Item</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function editItem(index) {
+            document.getElementById('editForm').style.display = 'block';
+            document.getElementById('editIndex').value = index;
+        }
+    </script>
+}

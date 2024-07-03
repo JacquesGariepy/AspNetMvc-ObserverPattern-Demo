@@ -1,0 +1,22 @@
+﻿<div class="childcomponent-container">
+    <form id="childForm">
+        <input type="text" id="childInput" placeholder="Enter item" />
+        <button type="button" onclick="sendDataToParent()">Add to List</button>
+    </form>
+</div>
+
+<script>
+    function sendDataToParent() {
+        var inputValue = document.getElementById('childInput').value;
+        var parentList = document.getElementById('parentList');
+        var listItem = document.createElement('li');
+        listItem.textContent = inputValue;
+        parentList.appendChild(listItem);
+
+        // Mise à jour du message dans le MessageViewComponent
+        var messageContainer = document.getElementById('dataContainer');
+        messageContainer.innerHTML = '<div class="viewcomponent-container"><p>Item added: ' + inputValue + '</p></div>';
+
+        document.getElementById('childInput').value = ''; // Clear input field
+    }
+</script>

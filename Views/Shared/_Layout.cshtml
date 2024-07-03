@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - POC Observer</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    LAYOUT
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; 2024 - POC Observer</p>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
