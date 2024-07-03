@@ -9,7 +9,7 @@ Implémentation du pattern Observer en ASP.NET MVC pour la gestion dynamique des
 1. **Cloner le dépôt :**
 
    ```bash
-   git clone https://github.com/your-username/AspNetMvc-ObserverPattern-Demo.git
+   git clone https://github.com/JacquesGariepy/AspNetMvc-ObserverPattern-Demo.git
    cd AspNetMvc-ObserverPattern-Demo
    ```
 
